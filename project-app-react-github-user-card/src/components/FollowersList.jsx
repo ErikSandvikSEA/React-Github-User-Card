@@ -1,6 +1,5 @@
 import React from 'react'
 import Follower from './Follower'
-import axios from 'axios'
 
 
 class FollowersList extends React.Component {
@@ -11,29 +10,15 @@ class FollowersList extends React.Component {
              }
      }
 
-     componentDidMount() {
-          console.log('cDM')
-          axios
-          .get(`https://api.github.com/users/eriksandviksea/followers`)
-          .then(response => {
-               console.log(this.props.userInfo.login)
-               console.log(response.data)
-            this.setState({userFollowers: response.data})
-          })
-          .catch(err => {
-            console.log(err)
-          })
-        }
-
 
      render() {
           return (
                <div>
-                    <h2>{this.props.userInfo.name}'s Followers</h2>
+                    <h2>{this.props.followers.name}'s Followers</h2>
                     <div>
                          {
                          
-                         this.state.userFollowers.map(follower => {
+                         this.props.followers.map(follower => {
                               return(
                               <Follower key={follower.login} followerInfo={follower} />
                               )

@@ -2,9 +2,9 @@ import React from 'react'
 
 
 class Follower extends React.Component {
-     constructor() {
-          super()
-     }
+     // constructor() {
+     //      super()
+     // }
      render() {
           return (
                <div>
@@ -17,7 +17,7 @@ class Follower extends React.Component {
                          </p>
                       
                          <p>
-                              Profile Link: <a href={this.props.followerInfo.html_url} target='_blank'>{this.props.followerInfo.html_url}</a>
+                              Profile Link: <a href={this.props.followerInfo.html_url}>{this.props.followerInfo.html_url}</a>
                          </p>
                     </div>
                </div>
