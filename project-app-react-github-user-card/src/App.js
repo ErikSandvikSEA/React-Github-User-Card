@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import axios from 'axios'
 import UserData from './components/UserData'
+import FollowersList from './components/FollowersList'
 
 class App extends React.Component {
   constructor(){
     super()
     this.state = {
       user: {},
-      userFollowers: []
     }
   }
 
@@ -32,6 +32,9 @@ class App extends React.Component {
           <h1>Github Users App</h1>
         </header>
         <UserData 
+          userInfo={this.state.user}
+        />
+        <FollowersList 
           userInfo={this.state.user}
         />
       </div>
