@@ -14,11 +14,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cDM')
+    // console.log('cDM')
     axios
       .get(`https://api.github.com/users/eriksandviksea`)
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({ user: response.data })
       })
       .catch(err => {
@@ -28,7 +28,7 @@ class App extends React.Component {
     axios
       .get(`https://api.github.com/users/eriksandviksea/followers`)
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({ followers: response.data })
       })
       .catch(err => {
@@ -43,7 +43,7 @@ class App extends React.Component {
     axios
       .get(`https://api.github.com/users/${this.state.formText}`)
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({ user: response.data })
       })
       .catch(err => {
@@ -54,7 +54,7 @@ class App extends React.Component {
     axios
       .get(`https://api.github.com/users/${this.state.formText}/followers`)
       .then(response => {
-        console.log(response)
+        // console.log(response)
         this.setState({ followers: response.data })
       })
       .catch(err => {
