@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+import UserData from './components/UserData'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      user: {},
+      userFollowers: []
+    }
+  }
+
+  componentDidMount() {
+    console.log('cDM')
+    axios
+    .get(`https://api.github.com/users/eriksandviksea`)
+    .then(response => {
+      this.setState({user: response.data})
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  render() {
+    // console.log('rendering from App')
+    return (
+      <div className="App">
+        <header>
+          <h1>Github Users App</h1>
+        </header>
+        <UserData 
+          userInfo={this.state.user}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
+
+
